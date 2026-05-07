@@ -1,0 +1,124 @@
+{
+    "Books": [
+        {
+            "id": 1,
+            "title": "The Silent Forest",
+            "author": "Emma Clark",
+            "category": "Story",
+            "image": "https://i.ibb.co/0jqHpnp/book1.jpg",
+            "description": "A mysterious journey through an ancient forest filled with secrets.",
+            "availableCopies": 8,
+            "rating": 4.5
+        },
+        {
+            "id": 2,
+            "title": "Whispers of the Moon",
+            "author": "Daniel Roberts",
+            "category": "Story",
+            "image": "https://i.ibb.co/B3s7v4h/book2.jpg",
+            "description": "A touching story of love, loss, and destiny.",
+            "availableCopies": 5,
+            "rating": 4.7
+        },
+        {
+            "id": 3,
+            "title": "Beyond the River",
+            "author": "Sophia Miller",
+            "category": "Story",
+            "image": "https://i.ibb.co/y0W2d9T/book3.jpg",
+            "description": "An inspiring tale of courage and friendship.",
+            "availableCopies": 6,
+            "rating": 4.3
+        },
+        {
+            "id": 4,
+            "title": "Mastering JavaScript",
+            "author": "John Doe",
+            "category": "Tech",
+            "image": "https://i.ibb.co/2K8YQ7D/book4.jpg",
+            "description": "A complete guide to modern JavaScript development.",
+            "availableCopies": 10,
+            "rating": 4.8
+        },
+        {
+            "id": 5,
+            "title": "React for Beginners",
+            "author": "Sarah Johnson",
+            "category": "Tech",
+            "image": "https://i.ibb.co/W3t7s8w/book5.jpg",
+            "description": "Learn React step by step with practical examples.",
+            "availableCopies": 7,
+            "rating": 4.6
+        },
+        {
+            "id": 6,
+            "title": "The Future of AI",
+            "author": "Michael Lee",
+            "category": "Tech",
+            "image": "https://i.ibb.co/7QpKsCX/book6.jpg",
+            "description": "Explore the impact of artificial intelligence in the modern world.",
+            "availableCopies": 4,
+            "rating": 4.9
+        },
+        {
+            "id": 7,
+            "title": "Quantum Wonders",
+            "author": "Dr. Alan Smith",
+            "category": "Science",
+            "image": "https://i.ibb.co/q0f7mFv/book7.jpg",
+            "description": "An introduction to the fascinating world of quantum physics.",
+            "availableCopies": 9,
+            "rating": 4.4
+        },
+        {
+            "id": 8,
+            "title": "Journey Through Space",
+            "author": "Lisa Ray",
+            "category": "Science",
+            "image": "https://i.ibb.co/P6f7YhT/book8.jpg",
+            "description": "Discover the mysteries of galaxies and the universe.",
+            "availableCopies": 5,
+            "rating": 4.7
+        },
+        {
+            "id": 9,
+            "title": "Human Anatomy Basics",
+            "author": "Dr. Emily Carter",
+            "category": "Science",
+            "image": "https://i.ibb.co/3z8v7ZT/book9.jpg",
+            "description": "A beginner-friendly guide to understanding the human body.",
+            "availableCopies": 6,
+            "rating": 4.2
+        },
+        {
+            "id": 10,
+            "title": "The Last Kingdom",
+            "author": "Henry Walker",
+            "category": "Story",
+            "image": "https://i.ibb.co/qxY7K4s/book10.jpg",
+            "description": "A thrilling adventure set in a forgotten kingdom.",
+            "availableCopies": 3,
+            "rating": 4.5
+        },
+        {
+            "id": 11,
+            "title": "Python Essentials",
+            "author": "Kevin Brown",
+            "category": "Tech",
+            "image": "https://i.ibb.co/Jt2b5mK/book11.jpg",
+            "description": "Everything you need to start coding with Python.",
+            "availableCopies": 12,
+            "rating": 4.8
+        },
+        {
+            "id": 12,
+            "title": "The Science of Nature",
+            "author": "Rachel Green",
+            "category": "Science",
+            "image": "https://i.ibb.co/ZYW3VTp/book12.jpg",
+            "description": "Understand the beauty and science behind nature.",
+            "availableCopies": 8,
+            "rating": 4.6
+        }
+    ]
+}
