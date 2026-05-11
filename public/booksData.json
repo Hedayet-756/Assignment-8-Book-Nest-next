@@ -5,7 +5,7 @@
             "title": "The Silent Forest",
             "author": "Emma Clark",
             "category": "Story",
-            "image": "https://ibb.co.com/vvPTnP0b",
+            "image": "https://i.ibb.co.com/5x8SH8bd/The-Silent-Forest.jpg",
             "description": "A mysterious journey through an ancient forest filled with secrets.",
             "availableCopies": 8,
             "rating": 4.5
@@ -15,7 +15,7 @@
             "title": "Whispers of the Moon",
             "author": "Daniel Roberts",
             "category": "Story",
-            "image": "https://ibb.co.com/s96Yzd7H",
+            "image": "https://i.ibb.co.com/7tRmLdh4/Whispers-of-the-Moon.jpg",
             "description": "A touching story of love, loss, and destiny.",
             "availableCopies": 5,
             "rating": 4.7
@@ -25,7 +25,7 @@
             "title": "Beyond the River",
             "author": "Sophia Miller",
             "category": "Story",
-            "image": "https://ibb.co.com/W4TXVJdh",
+            "image": "https://i.ibb.co.com/PvSyDHbL/Beyond-the-River.webp",
             "description": "An inspiring tale of courage and friendship.",
             "availableCopies": 6,
             "rating": 4.3
@@ -35,7 +35,7 @@
             "title": "Mastering JavaScript",
             "author": "John Doe",
             "category": "Tech",
-            "image": "https://ibb.co.com/Kzq0LL5y",
+            "image": "https://i.ibb.co.com/Xks233WJ/Mastering-Java-Script.webp",
             "description": "A complete guide to modern JavaScript development.",
             "availableCopies": 10,
             "rating": 4.8
@@ -45,7 +45,7 @@
             "title": "React for Beginners",
             "author": "Sarah Johnson",
             "category": "Tech",
-            "image": "https://ibb.co.com/C5xqWxcF",
+            "image": "https://i.ibb.co.com/N6wX7wvz/React-for-Beginners.png",
             "description": "Learn React step by step with practical examples.",
             "availableCopies": 7,
             "rating": 4.6
@@ -55,7 +55,7 @@
             "title": "The Future of AI",
             "author": "Michael Lee",
             "category": "Tech",
-            "image": "https://ibb.co.com/4ZWSL3Dx",
+            "image": "https://i.ibb.co.com/qMBg8V4w/The-Future-of-AI.jpg",
             "description": "Explore the impact of artificial intelligence in the modern world.",
             "availableCopies": 4,
             "rating": 4.9
@@ -65,7 +65,7 @@
             "title": "Quantum Wonders",
             "author": "Dr. Alan Smith",
             "category": "Science",
-            "image": "https://ibb.co.com/dJrsT989",
+            "image": "https://i.ibb.co.com/Qjf7gByB/Quantum-Wonders.jpg",
             "description": "An introduction to the fascinating world of quantum physics.",
             "availableCopies": 9,
             "rating": 4.4
@@ -75,7 +75,7 @@
             "title": "Journey Through Space",
             "author": "Lisa Ray",
             "category": "Science",
-            "image": "https://ibb.co.com/99PLrSm2",
+            "image": "https://i.ibb.co.com/hR0jmwxH/Journey-Through-Space.jpg",
             "description": "Discover the mysteries of galaxies and the universe.",
             "availableCopies": 5,
             "rating": 4.7
@@ -85,7 +85,7 @@
             "title": "Human Anatomy Basics",
             "author": "Dr. Emily Carter",
             "category": "Science",
-            "image": "https://ibb.co.com/s9HVycK3",
+            "image": "https://i.ibb.co.com/F4VDgc57/Human-Anatomy-Basics.jpg",
             "description": "A beginner-friendly guide to understanding the human body.",
             "availableCopies": 6,
             "rating": 4.2
@@ -95,7 +95,7 @@
             "title": "The Last Kingdom",
             "author": "Henry Walker",
             "category": "Story",
-            "image": "https://ibb.co.com/gMLS1SvN",
+            "image": "https://i.ibb.co.com/8DLr3rzq/Bernard-Cornwell-The-Last-Kingdom.jpg",
             "description": "A thrilling adventure set in a forgotten kingdom.",
             "availableCopies": 3,
             "rating": 4.5
@@ -105,7 +105,7 @@
             "title": "Python Essentials",
             "author": "Kevin Brown",
             "category": "Tech",
-            "image": "https://ibb.co.com/QvtJm8NM",
+            "image": "https://i.ibb.co.com/chVyTbFQ/python-Essentials.webp",
             "description": "Everything you need to start coding with Python.",
             "availableCopies": 12,
             "rating": 4.8
@@ -115,7 +115,7 @@
             "title": "The Science of Nature",
             "author": "Rachel Green",
             "category": "Science",
-            "image": "https://ibb.co.com/SXs8Jv3t",
+            "image": "https://i.ibb.co.com/0jDSQJGC/The-Science-of-Nature.webp",
             "description": "Understand the beauty and science behind nature.",
             "availableCopies": 8,
             "rating": 4.6

@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Header = () => {
   return (
-    <div className="relative w-full overflow-hidden rounded-xl bg-[#112240]">
+    <div className="relative overflow-hidden rounded-xl bg-[#112240]">
       <Image
         src={logo}
         alt="Logo"

@@ -8,8 +8,8 @@ import Header from "../components/shared/Header";
 const MainLayout = ({ children }) => {
     return (
         <>
-            {/* <Header />
-            <BreakingNews /> */}
+
+            {/* <BreakingNews /> */}
             <Navbar />
             <Header />
             {children}
