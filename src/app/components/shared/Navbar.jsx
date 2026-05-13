@@ -3,55 +3,85 @@
 import logo from "@/assets/logo.png";
 import Image from "next/image";
 import NavLink from "./NavLink";
-
+import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user || null;
+
+    const handleSignOut = async () => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    window.location.href = "/";
+                },
+            },
+        });
+    };
 
     return (
-        <div className="container flex flex-wrap md:flex-nowrap justify-between items-center gap-2 my-4 md:my-6 px-4 py-2 sticky top-0 z-50 bg-[#0A192F]/80 backdrop-blur-md shadow-md mx-auto rounded-xl">
-            <div>
-                <NavLink href={"/"}>
+        <nav className="container flex justify-between items-center gap-2 my-4 md:my-6 px-4 py-3 sticky top-0 z-50 bg-[#0A192F]/80 backdrop-blur-md shadow-md mx-auto rounded-xl border border-gray-800">
+            <div className="flex-shrink-0">
+                <Link href={"/"}>
                     <Image
                         src={logo}
-                        width={80}
+                        width={120}
                         height={50}
                         alt="Logo"
-                        className="rounded-lg md:w-[120px]"
+                        className="rounded-lg w-[80px] md:w-[110px]"
                     />
-                </NavLink>
+                </Link>
             </div>
-            <ul className="flex items-center text-gray-400 gap-3 md:gap-6 text-sm md:text-base">
-                <li>
-                    <NavLink href={"/"} className=' hover:text-purple-500'>Home</NavLink>
+            <ul className="flex items-center text-gray-400 gap-4 md:gap-8 text-sm md:text-base font-medium">
+                <li className="hidden md:block">
+                    <NavLink href={"/"} activeClassName="text-purple-500" className='hover:text-purple-400 transition-colors'>
+                        Home
+                    </NavLink>
                 </li>
                 <li>
-                    <NavLink href={"/all-books"} className=' hover:text-purple-500'>All Books</NavLink>
+                    <NavLink href={"/all-books"} activeClassName="text-purple-500" className='hover:text-purple-400 transition-colors'>
+                        All Books
+                    </NavLink>
                 </li>
             </ul>
-            <div>
-                <button className="btn btn-sm md:btn-md bg-purple-600 text-white border-none">
-                    Login
-                </button>
-            </div>
 
-        </div >
+            <div className="flex items-center">
+                {isPending ? (
+                    <div className="w-8 md:w-10 h-8 rounded-full"></div>
+                ) : user ? (
+                    <div className="flex items-center gap-2 md:gap-3 p-1 pr-2 md:pr-3 rounded-full">
+
+                        <div className="hidden sm:block">
+                            <h2 className="text-xs md:text-xl font-bold text-white leading-none">{user?.name?.split(' ')[0]}</h2>
+                        </div>
+
+                        <div className="relative w-8 h-8 md:w-12 md:h-12">
+                            <Image
+                                src={user?.image || `https://ui-avatars.com/api/?name=${user.name}&background=6366f1&color=fff`}
+                                alt="User"
+                                fill
+                                className="rounded-full object-cover border border-purple-500"
+                            />
+                        </div>
+
+                        <button
+                            onClick={handleSignOut}
+                            className="px-3 py-1 bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white rounded-full text-[10px] md:text-xl font-bold transition-all border border-red-500/20"
+                        >
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <Link href="/login">
+                        <button className="px-4 py-2 md:px-6 md:py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg text-sm font-bold hover:shadow-lg transition-all active:scale-95">
+                            Login
+                        </button>
+                    </Link>
+                )}
+            </div>
+        </nav>
     );
 };
 
 export default Navbar;
-
-
-// {isPending ? (<span className="loading loading-spinner loading-lg"></span>) :
-//                 user ? (
-//                     <div className="flex items-center gap-2">
-//                         <h2>Hello {user?.name || "Guest"}</h2>
-//                         <Image src={user?.image || userAvatar} alt="User avatar" width={60} height={60} className="rounded-full" />
-//                         <button onClick={async () => await authClient.signOut()} className="btn bg-red-500 text-white">
-//                             <Link href={"/"}>Logout</Link>
-//                         </button>
-//                     </div>) : (
-//                     <button className="btn bg-purple-500 text-white">
-//                         <Link href={"/login"}>Login</Link>
-//                     </button>
-//                 )
-//             }
