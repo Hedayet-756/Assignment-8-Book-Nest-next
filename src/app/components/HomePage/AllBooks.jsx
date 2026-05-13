@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import React from "react";
 import { CiStar } from "react-icons/ci";
 
@@ -24,8 +25,17 @@ const AllBooks = ({ book }) => {
           </div>
         </div>
 
-        <h2 className="card-title font-bold text-lg md:text-2xl mt-2 line-clamp-1 text-gray-100">{book.title}</h2>
-        <p className='font-medium text-sm text-gray-500'>By: {book.author}</p>
+        <div className="flex gap-5 justify-between items-center">
+          <div>
+            <h2 className="card-title font-bold text-lg md:text-2xl mt-2 line-clamp-1 text-gray-100">{book.title}</h2>
+            <p className='font-medium text-sm text-gray-500'>By: {book.author}</p>
+          </div>
+          <div>
+            <Link href={`/book/${book.id}`}>
+              <button className="btn bg-purple-950">Read</button>
+            </Link>
+          </div>
+        </div>
 
         <div className="flex justify-between items-center border-t border-dashed border-gray-200 pt-4 mt-4">
           <div className="font-semibold text-gray-500 text-sm">{book.category}</div>

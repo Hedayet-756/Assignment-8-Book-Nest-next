@@ -1,86 +1,99 @@
-import { getNewsDetailsById } from "../../../../lib/data";
+import { getBookDetailsById } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { BsArrowRight } from "react-icons/bs";
-import { CiBookmark, CiShare2 } from "react-icons/ci";
-import { FaEye } from "react-icons/fa";
-import { IoIosStar } from "react-icons/io";
+import { FaBookOpen, FaStar, FaArrowLeft } from "react-icons/fa6";
 
 export const generateMetadata = async ({ params }) => {
     const { id } = await params;
-    console.log(id, "params");
-    const news = await getNewsDetailsById(id);
-    console.log(news, "news");
+    const book = await getBookDetailsById(id);
 
     return {
-        title: news.title,
-        description: news.details,
+        title: book?.title || "Book Details",
+        description: book?.description || "Read more about this book.",
     };
 };
 
-const NewsDetailsPage = async ({ params }) => {
+const BookDetailsPage = async ({ params }) => {
     const { id } = await params;
-    //   console.log(id, "params");
-    const news = await getNewsDetailsById(id);
-    //   console.log(news, "news");
+    const book = await getBookDetailsById(id);
+
+    if (!book) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <h2 className="text-2xl text-gray-400">Book not found!</h2>
+            </div>
+        );
+    }
+
     return (
-        <div className="max-w-4xl mx-auto my-8 ">
-            <div className="card bg-base-100 shadow-sm">
-                <div className="card-body">
-                    {/* Author info */}
-                    <div className="flex justify-between items-center bg-slate-200 p-4">
-                        <div className="flex gap-1 items-center">
-                            <Image
-                                src={news.author?.img}
-                                alt={news.author?.name}
-                                height={40}
-                                width={40}
-                                className="rounded-full"
-                            />
-                            <div>
-                                <h2 className="font-semibold">{news.author?.name}</h2>
-                                <p className="text-xs">{news.author?.published_date}</p>
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <CiShare2 className="text-xl" />
-                            <CiBookmark className="text-xl" />
+        <div className="container mx-auto px-4 py-12 lg:py-20">
+            {/* Back Button */}
+            <Link
+                href={`/all-books?category=${book.category}`}
+                className="flex items-center gap-2 text-gray-400 text-xl md:text-2xl p-4 font-semibold hover: rounded-2xl hover:bg-purple-700 hover:text-purple-200 mb-8 transition-colors w-fit"
+            >
+                <FaArrowLeft /> Back to Library
+            </Link>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-[#0A192F] border border-gray-800 rounded-3xl p-6 md:p-10 shadow-2xl shadow-purple-500/10">
+                <div className="lg:col-span-5 xl:col-span-4">
+                    <div className="relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                        <img
+                            src={book.image}
+                            alt={book.title}
+                            className="relative rounded-2xl w-full h-auto object-cover shadow-2xl"
+                        />
+                    </div>
+                </div>
+
+                <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-center">
+                    <div className="flex flex-wrap items-center gap-3 mb-4">
+                        <span className="px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold border border-blue-500/20">
+                            {book.category}
+                        </span>
+                        <div className="flex items-center gap-1 text-yellow-500 font-bold bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/20">
+                            <FaStar /> {book.rating}
                         </div>
                     </div>
 
-                    <h2 className="card-title">{news.title}</h2>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+                        {book.title}
+                    </h1>
 
-                    <figure>
-                        <Image
-                            src={news.image_url}
-                            alt={news.title}
-                            width={300}
-                            height={300}
-                            className="w-full"
-                        />
-                    </figure>
+                    <p className="text-xl text-gray-400 mb-6 flex items-center gap-2">
+                        by <span className="text-purple-400 font-semibold">{book.author}</span>
+                    </p>
 
-                    <p className="">{news.details}</p>
+                    <div className="h-1 w-20 bg-gradient-to-r from-purple-600 to-pink-500 mb-8 rounded-full"></div>
 
-                    <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2">
-                            <h2 className="flex items-center gap-2">
-                                <IoIosStar className="text-lg text-yellow-500" />
-
-                                {news.rating.number}
-                            </h2>
-                            <h2 className="flex items-center gap-2">
-                                <FaEye className="text-lg" />
-                                {news.total_view}
-                            </h2>
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-gray-300 font-bold text-lg mb-2">Description</h3>
+                            <p className="text-gray-400 leading-relaxed text-lg max-w-3xl">
+                                {book.description}
+                            </p>
                         </div>
 
-                        <Link href={`/category/${news.category_id}`}>
-                            <button className="btn bg-purple-500 text-white">
-                                See other news for this category <BsArrowRight />
+                        <div className="flex flex-wrap gap-8 py-6 border-y border-gray-800">
+                            <div>
+                                <p className="text-gray-500 text-sm uppercase tracking-wider">Availability</p>
+                                <p className="text-white font-bold text-lg">
+                                    {book.availableCopies > 0 ? `${book.availableCopies} Copies left` : "Out of Stock"}
+                                </p>
+                            </div>
+                            <div>
+                                <p className="text-gray-500 text-sm uppercase tracking-wider">Format</p>
+                                <p className="text-white font-bold text-lg">Hardcover / PDF</p>
+                            </div>
+                        </div>
+
+                        <div className="pt-6">
+                            <button className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-purple-600/30">
+                                <FaBookOpen /> Borrow This Book
                             </button>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,4 +101,4 @@ const NewsDetailsPage = async ({ params }) => {
     );
 };
 
-export default NewsDetailsPage;
+export default BookDetailsPage;
