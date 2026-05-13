@@ -1,8 +1,10 @@
-import { cache } from "react";
+// import { cache } from "react";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+// await fetch(`${BASE_URL}/booksData.json`
+
 
 export async function getBooks() {
-  const res = await fetch(
-    "http://localhost:3000/booksData.json",
+  const res = await fetch(`${BASE_URL}/booksData.json`,
     { next: { revalidate: 6000 } }
   );
   const data = await res.json();
@@ -11,8 +13,7 @@ export async function getBooks() {
 }
 
 export async function getCategories() {
-  const res = await fetch(
-    "http://localhost:3000/booksData.json",
+  const res = await fetch(`${BASE_URL}/booksData.json`,
     { next: { revalidate: 6000 } }
   );
   const data = await res.json();
@@ -21,8 +22,7 @@ export async function getCategories() {
 }
 
 export async function getBooksByCategoryId(category_name) {
-  const res = await fetch(
-    "http://localhost:3000/booksData.json",
+  const res = await fetch(`${BASE_URL}/booksData.json`,
     { next: { revalidate: 6000 } }
   );
   const data = await res.json();
@@ -32,8 +32,7 @@ export async function getBooksByCategoryId(category_name) {
 }
 
 export async function getBookDetailsById(id) {
-  const res = await fetch(
-    "http://localhost:3000/booksData.json",
+  const res = await fetch(`${BASE_URL}/booksData.json`,
     { next: { revalidate: 6000 } }
   );
   const data = await res.json();
