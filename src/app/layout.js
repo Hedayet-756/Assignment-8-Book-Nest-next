@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col w-11/12 items-center mx-auto bg-[#112240]">
         {children}
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );

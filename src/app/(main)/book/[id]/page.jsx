@@ -1,3 +1,4 @@
+import ReadButton from "@/app/components/shared/ReadButton";
 import { getBookDetailsById } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
@@ -90,9 +91,7 @@ const BookDetailsPage = async ({ params }) => {
                         </div>
 
                         <div className="pt-6">
-                            <button className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-purple-600/30">
-                                <FaBookOpen /> Borrow This Book
-                            </button>
+                            <ReadButton />
                         </div>
                     </div>
                 </div>
