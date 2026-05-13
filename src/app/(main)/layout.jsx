@@ -4,6 +4,7 @@
 import React from "react";
 import Navbar from "../components/shared/Navbar";
 import Header from "../components/shared/Header";
+import NewAddedBooks from "../components/shared/NewAddedBooks";
 
 const MainLayout = ({ children }) => {
     return (
@@ -12,6 +13,7 @@ const MainLayout = ({ children }) => {
             {/* <BreakingNews /> */}
             <Navbar />
             <Header />
+            <NewAddedBooks />
             {children}
         </>
     );

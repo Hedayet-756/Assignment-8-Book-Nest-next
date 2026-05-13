@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${montserrat.variable} ${poppin.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col w-11/12 items-center mx-auto bg-[#112240]">{children}</body>
+      <body className="min-h-full flex flex-col w-11/12 items-center mx-auto bg-[#112240]">
+        {children}
+      </body>
     </html>
   );
 }

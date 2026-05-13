@@ -6,10 +6,12 @@ import { montserrat } from "../layout";
 
 const AuthLayout = ({ children }) => {
     return (
-        <div className={`${montserrat.className} min-h-screen flex flex-col`}>
+        <>
             <Navbar />
-            {children}
-        </div>
+            <div className={`${montserrat.className} min-h-screen flex flex-col`}>
+                {children}
+            </div>
+        </>
     );
 };
 

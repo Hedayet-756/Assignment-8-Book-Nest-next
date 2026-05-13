@@ -61,9 +61,3 @@ const HomePage = async () => {
 };
 
 export default HomePage;
-
-// {
-//     books.category.map((category, index) => (
-//         <div key={index} className="badge text-green-500 bg-green-200 font-bold">{category}</div>
-//     ))
-// }

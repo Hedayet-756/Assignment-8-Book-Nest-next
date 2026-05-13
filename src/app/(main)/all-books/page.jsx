@@ -1,67 +1,51 @@
-import React from 'react';
-import { CiStar } from 'react-icons/ci';
 
-// const booksProminse = fetch('/booksData.json').then(res => res.json())
+import AllBooks from "@/app/components/HomePage/AllBooks";
+import BookDetailsLeft from "@/app/components/HomePage/BookDetailsLeft";
+import { getBooks, getBooksByCategoryId, getCategories } from "@/lib/data";
 
-async function getBooks() {
-    const res = await fetch("http://localhost:3000/booksData.json");
-    if (!res.ok) throw new Error('Failed to fetch data');
-    const data = await res.json();
-    return data.Books;
-}
 
-const AllBooksPage = async () => {
+const AllBooksPage = async ({ searchParams }) => {
+    console.log(searchParams, 'searchParams')
 
-    const allBooks = await getBooks();
+    const query = await searchParams;
+    const selectedCategory = query.category;
 
-    // console.log(books);
+    const categories = await getCategories();
+    let books = [];
+
+    if (selectedCategory) {
+        books = await getBooksByCategoryId(selectedCategory);
+    } else {
+        books = await getBooks();
+    }
+
 
     return (
-        <div className='overflow-hidden rounded-xl bg-[#112240]'>
-            <div className='mt-8 flex justify-start items-center'>
-                <h1 className='text-4xl bg-linear-to-r from-purple-600 to-pink-400 bg-clip-text text-transparent'>Featured Books:</h1>
+        <div className="container mx-auto grid grid-cols-12 gap-4 my-[60px]">
+            <div className=" col-span-2">
+                <BookDetailsLeft categories={categories} activeId={selectedCategory} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
-                {allBooks.map((book) => (
-                    <div key={book.id} className="card bg-base-100 shadow-xl border rounded-2xl">
-                        <div>
-                            <figure className='p-6'>
-                                <img
-                                    className='rounded-xl h-[220px] w-full object-cover object-top'
-                                    src={book.image}
-                                    alt={book.title}
-                                />
-                            </figure>
+
+            <div className="col-span-10">
+                <h2 className="font-bold flex justify-center items-center text-4xl bg-gradient-to-r from-purple-600 to-pink-400 bg-clip-text text-transparent mb-8">
+                    Books by Category
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {books.length > 0 ? (
+                        books.map((book) => (
+                            <AllBooks key={book.id} book={book} />
+                        ))
+                    ) : (
+                        <div className="col-span-full">
+                            <h2 className="font-bold text-4xl text-center my-20 text-gray-400">
+                                NO books found!
+                            </h2>
                         </div>
-
-                        <div className="card-body">
-                            <div className='flex items-center gap-2'>
-                                <div className="badge text-green-500 bg-green-200 font-bold px-3 py-3">
-                                    {book.category}
-                                </div>
-                            </div>
-
-                            <h2 className="card-title font-bold text-2xl mt-2">{book.title}</h2>
-                            <p className='font-semibold text-lg text-gray-600'>By: {book.author}</p>
-
-                            <div className="card-actions justify-between border-t border-dashed border-gray-300 pt-4 mt-4 text-xl">
-                                <div className="font-semibold text-gray-700">{book.category}</div>
-                                <div className="flex gap-2 items-center text-2xl font-bold">
-                                    {book.rating} <CiStar className="text-yellow-500" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                    )}
+                </div>
             </div>
         </div>
     );
 };
 
 export default AllBooksPage;
-
-// {
-//     books.category.map((category, index) => (
-//         <div key={index} className="badge text-green-500 bg-green-200 font-bold">{category}</div>
-//     ))
-// }
