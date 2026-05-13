@@ -5,6 +5,7 @@ import React from "react";
 import Navbar from "../components/shared/Navbar";
 import Header from "../components/shared/Header";
 import NewAddedBooks from "../components/shared/NewAddedBooks";
+import FooterPage from "../components/shared/FooterPage";
 
 const MainLayout = ({ children }) => {
     return (
@@ -15,6 +16,7 @@ const MainLayout = ({ children }) => {
             <Header />
             <NewAddedBooks />
             {children}
+            <FooterPage />
         </>
     );
 };
