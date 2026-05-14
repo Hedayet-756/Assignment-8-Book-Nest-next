@@ -4,7 +4,7 @@ import React from "react";
 import { CiStar } from "react-icons/ci";
 
 const AllBooks = ({ book }) => {
-  console.log(book, "books");
+  // console.log(book, "books");
 
   if (!book) return null;
 

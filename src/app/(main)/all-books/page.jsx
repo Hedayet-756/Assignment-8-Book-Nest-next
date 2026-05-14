@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 
 
 const AllBooksPage = async ({ searchParams }) => {
-    console.log(searchParams, 'searchParams')
+    // console.log(searchParams, 'searchParams')
 
     const query = await searchParams;
     const selectedCategory = query?.category;

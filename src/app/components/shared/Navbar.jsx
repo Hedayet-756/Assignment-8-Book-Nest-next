@@ -10,7 +10,7 @@ const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
     const user = session?.user || null;
 
-    const handleSignOut = async () => {
+    const handleSLogOut = async () => {
         await authClient.signOut({
             fetchOptions: {
                 onSuccess: () => {
@@ -66,7 +66,7 @@ const Navbar = () => {
                         </div>
 
                         <button
-                            onClick={handleSignOut}
+                            onClick={handleSLogOut}
                             className="px-3 py-1 bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white rounded-full text-[10px] md:text-xl font-bold transition-all border border-red-500/20"
                         >
                             Logout
