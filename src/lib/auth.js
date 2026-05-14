@@ -16,9 +16,9 @@ export const auth = betterAuth({
     },
     trustedOrigins: ["https://assignment-8-book-nest-next.vercel.app/"],
     socialProviders: {
-        google: {
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        },
+        // google: {
+        //     clientId: process.env.GOOGLE_CLIENT_ID,
+        //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        // },
     }
 });
