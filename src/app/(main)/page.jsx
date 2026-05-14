@@ -1,6 +1,6 @@
 
 import AllBooks from "@/app/components/HomePage/AllBooks";
-import { getBooks, getBooksByCategoryId, getCategories } from "@/lib/data";
+import { getBookDetailsById, getBooks, getCategories } from "@/lib/data";
 import PricingPage from "../components/HomePage/PricingSection";
 import ReviewPage from "../components/HomePage/ReviewPage";
 
@@ -10,7 +10,6 @@ const AllBooksPage = async ({ searchParams }) => {
     const selectedCategory = query?.category;
 
     let books = [];
-
 
     if (selectedCategory) {
         books = await getBooksByCategoryId(selectedCategory);

@@ -31,8 +31,9 @@ const RegisterPage = () => {
         }
     };
 
-    const [isShowPassword, setIsShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isShowPassword, setIsShowPassword] = useState(false);
+
 
     // console.log('watch', watch());
 

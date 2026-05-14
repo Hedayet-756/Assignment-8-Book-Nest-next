@@ -1,7 +1,8 @@
 
 import AllBooks from "@/app/components/HomePage/AllBooks";
 import BookDetailsLeft from "@/app/components/HomePage/BookDetailsLeft";
-import { getBooks, getBooksByCategoryId, getCategories } from "@/lib/data";
+import { getBooks, getBooksByCategoryID, getCategories } from "@/lib/data";
+
 import { FaSearch } from "react-icons/fa";
 
 
@@ -17,7 +18,7 @@ const AllBooksPage = async ({ searchParams }) => {
     let books = [];
 
     if (selectedCategory) {
-        books = await getBooksByCategoryId(selectedCategory);
+        books = await getBooksByCategoryID(selectedCategory)
     } else {
         books = await getBooks();
     }
