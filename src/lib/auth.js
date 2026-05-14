@@ -14,6 +14,11 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
+    user: {
+        changeEmail: {
+            enabled: false,
+        }
+    },
     trustedOrigins: ["https://assignment-8-book-nest-next.vercel.app/"],
     socialProviders: {
         // google: {
