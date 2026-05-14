@@ -16,9 +16,7 @@ const AllBooksPage = async ({ searchParams }) => {
         books = await getBooksByCategoryId(selectedCategory);
     } else {
         const allBooks = await getBooks();
-        books = allBooks
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 4);
+        books = allBooks.slice(5, 9);
     }
 
 
