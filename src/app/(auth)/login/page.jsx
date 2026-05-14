@@ -70,11 +70,9 @@ const LoginPage = () => {
                         Welcome Back
                     </h1>
                     <p className="text-gray-400 text-center mb-8">Login to access your library</p>
-
-                    {/* Social Login Button */}
                     <button
                         onClick={handleGoogleLogin}
-                        className="w-full flex items-center justify-center gap-3 bg-[#0A192F] border border-gray-700 text-white py-3.5 rounded-xl hover:bg-gray-800 transition-all mb-6 font-medium"
+                        className="w-full flex items-center justify-center gap-3 bg-[#0A192F] border border-gray-700 text-white py-3.5 rounded-xl hover:bg-gray-800 transition-all mb-6 font-medium cursor-pointer"
                     >
                         <FaGoogle className="text-red-500 text-xl" />
                         Continue with Google
@@ -86,7 +84,6 @@ const LoginPage = () => {
                     </div>
 
                     <form className='space-y-5' onSubmit={handleSubmit(handleLoginFunc)}>
-                        {/* Email Field */}
                         <div className="space-y-2">
                             <label className="text-gray-300 text-sm font-medium ml-1">Email Address</label>
                             <div className="relative group">
@@ -100,8 +97,6 @@ const LoginPage = () => {
                             </div>
                             {errors.email && <p className="text-red-400 text-xs ml-1">{errors.email.message}</p>}
                         </div>
-
-                        {/* Password Field */}
                         <div className="space-y-2">
                             <div className="flex justify-between items-center px-1">
                                 <label className="text-gray-300 text-sm font-medium">Password</label>
